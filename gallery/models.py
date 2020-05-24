@@ -12,3 +12,23 @@ class Images (models.Model):
     class Meta:
         ordering = ['name']
 
+#LOCATION
+class Location(models.Model):
+    locations=(
+        ('Kenya','Kenya'),
+        ('Uganda','Uganda'),
+        ('Paris','Paris'),
+        ('London','London'),
+        ('Mexico','Mexico'),
+        ('India','India'),
+    )
+    locs = models.CharField(max_length = 255, choices = locations)
+
+    class Meta:
+        verbose_name_plural = 'Location'
+    
+
+def __str__(self):
+        return f"{self.locs}"
+
+
