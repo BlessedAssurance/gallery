@@ -25,3 +25,13 @@ class SearchResultsListView(ListView):
         query = self.request.GET.get('q')
         if Images.objects.filter(Q(image_category=query)):
             return Images.objects.filter(Q(image_category=query))
+
+class SearchLocationListView(ListView):
+    model = Images
+    context_object_name = 'images_list'
+    template_name = ''
+
+def get_queryset(self): 
+        query = self.request.GET.get('q')
+        if Images.objects.filter(Q(image_location=query)):
+            return Images.objects.filter(Q(image_location=query))        
