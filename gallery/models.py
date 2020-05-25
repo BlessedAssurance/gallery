@@ -5,10 +5,10 @@ from django.db import models
 # IMAGES
 class Images (models.Model):
     name= models.CharField(max_length =30)
-    image=models.ImageField(upload_to ='images/')
+    image=models.ImageField(upload_to ='images/', null=True)
     description = models.TextField()
-    image_location = models.ForeignKey('Location', on_delete=models.CASCADE,)
-    image_category = models.ForeignKey('Category', on_delete=models.CASCADE,)
+    image_location = models.ForeignKey('Location', on_delete=models.CASCADE,null=True)
+    image_category = models.ForeignKey('Category', on_delete=models.CASCADE,null=True)
 
     @classmethod
     def search_image(cls,category):
@@ -84,7 +84,7 @@ def __str__(self):
 class Category(models.Model):
     categories = (
         ('Flowers','Flowers'),
-        ('Articles','Articles'),
+        ('Places','Places'),
         ('Animals','Animals'),
         ('People','People')
     )
