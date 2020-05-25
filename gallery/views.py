@@ -5,28 +5,23 @@ from django.db.models import Q
 from .models import Images
 
 # Create your views here.
-def welcome (request):
-    return render(request, 'welcome.html')
-
-def gallery_today(request):
-    date = dt.date.today()
-    return render(request, 'all-photos/today-photos.html', {"date": date,})
+# def welcome (request):
+#     return render(request, 'welcome.html')
 
 
+def home(request):
+    images= Images.objects.all()
+    return render(request, "home.html", {"images":images})
 
-def past_days_gallery(request,past_date):
-    # View Function to present news from past days:
 
-    try:
-        # Converts data from the string Url
-        date = dt.datetime.strptime(past_date, '%Y-%m-%d').date()
 
-    except ValueError:
-        # Raise 404 error when ValueError is thrown
-        raise Http404()
-    assert False
+class SearchResultsListView(ListView):
+    model = Images
+    context_object_name = 'images_list'
+    template_name = 'search.html'
+    
 
-    if date == dt.date.today():
-        return redirect(gallery_today)
-
-    return render(request, 'all-photos/past-photos.html', {"date": date})
+    def get_queryset(self): 
+        query = self.request.GET.get('q')
+        if Images.objects.filter(Q(image_category=query)):
+            return Images.objects.filter(Q(image_category=query))
