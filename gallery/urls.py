@@ -5,9 +5,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
-    url('',views.home,name='home'),
-    url('search/', SearchResultsListView.as_view(), name='search_results'),
-    url('search/', SearchLocationListView.as_view(), name='search_results'),
+    url(r'^$',views.home,name='home'),
+    url(r'search/', SearchResultsListView.as_view(), name='search_results'),
+    url(r'search/', SearchLocationListView.as_view(), name='search_results'),
 ]
 
 if settings.DEBUG:
