@@ -49,9 +49,39 @@ class Images (models.Model):
     # class Meta:
     #     ordering = ['name']
 
-#LOCATION
+# #LOCATION
+# class Location(models.Model):
+#     locations=(
+#         ('Kenya','Kenya'),
+#         ('Uganda','Uganda'),
+#         ('Paris','Paris'),
+#         ('London','London'),
+#         ('Mexico','Mexico'),
+#         ('India','India'),
+#     )
+#     locs = models.CharField(max_length = 255, choices = locations)
+
+#     class Meta:
+#         verbose_name_plural = 'Location'
+#     @classmethod
+#     def save_location(self):
+#         self.save()
+    
+#     @classmethod 
+#     def delete_location(self):
+#         self.delete()
+        
+#     @classmethod
+#     def update_locs(cls, id, new_locs):
+#         cls.objects.filter(id=id).update(locs=new_locs)
+    
+
+# def __str__(self):
+#         return f"{self.locs}"
+
+#CATEGORY
 class Location(models.Model):
-    locations=(
+    Places = (
         ('Kenya','Kenya'),
         ('Uganda','Uganda'),
         ('Paris','Paris'),
@@ -59,25 +89,27 @@ class Location(models.Model):
         ('Mexico','Mexico'),
         ('India','India'),
     )
-    locs = models.CharField(max_length = 255, choices = locations)
-
+    locs = models.CharField(max_length = 255, choices = Places )
     class Meta:
-        verbose_name_plural = 'Location'
+        verbose_name_plural = 'location'
+
     @classmethod
-    def save_location(self):
+    def save_category(self):
         self.save()
-    
-    @classmethod 
-    def delete_location(self):
+        
+    @classmethod
+    def delete_category(self):
         self.delete()
         
     @classmethod
-    def update_locs(cls, id, new_locs):
-        cls.objects.filter(id=id).update(locs=new_locs)
-    
+    def update_cate(cls, id, new_cate):
+        cls.objects.filter(id=id).update(locs=new_cate)
 
-def __str__(self):
+
+    def __str__(self):
         return f"{self.locs}"
+
+
 
 
 #CATEGORY
