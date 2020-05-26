@@ -29,7 +29,7 @@ class SearchResultsListView(ListView):
 class SearchLocationListView(ListView):
     model = Images
     context_object_name = 'images_list'
-    template_name = ''
+    template_name = 'location.html'
 
 def get_queryset(self): 
         query = self.request.GET.get('q')
