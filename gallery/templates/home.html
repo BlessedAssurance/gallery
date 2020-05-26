@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<header>
+    <div class=" container header-content">
+        <div class="container-fluid">
+            <h1 class="text-center fadeIn">BLAIRCARSON GALLERY</h1>
+            <p class="text-center">View Our Amazing Photos Here</p>
+            <div class="text-center pt-1">
+              <a href="{% url 'home' %}" class="btn btn-outline-success btn-lg p-1 mybtn"
+                >Browse...</a
+              >
+            </div>
+          </div>
+
+        <!-- Adding a search form  -->
+
+        <form class="navbar-form" role="search" action="{% url 'search_results' %}" METHOD="GET">
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search Item" name="image">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Go
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</header>
+
+
+    
+
+
+
+
+
+
+
+
+{% endblock %}
