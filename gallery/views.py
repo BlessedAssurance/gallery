@@ -35,3 +35,5 @@ def get_queryset(self):
         query = self.request.GET.get('q')
         if Images.objects.filter(Q(image_location=query)):
             return Images.objects.filter(Q(image_location=query))        
+
+
