@@ -20,12 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e!g$6q44=v%67^6bh1of!vymkt+9kyf*_t(u4vt99-lh(c5krl'
+
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,11 +85,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('DB_NAME', 'postgres'),
         'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', '29484510'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'password'),
         'HOST': os.environ.get('DB_HOST', 'localhost'),
         'PORT': os.environ.get('DB_PORT', '5432'),
         'TEST': {
-            'NAME': 'test_gallery'
+            'NAME': 'test_photo'
         }
     },
 }
