@@ -1,4 +1,4 @@
-## Photo Gallry
+## Photo Gallery
 
 ### Author
 - Vincent Kirui
