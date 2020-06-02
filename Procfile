@@ -1,2 +1,4 @@
 
-web: gunicorn photo_gallery.wsgi --log-file 
+web: gunicorn carsongallery.wsgi --log-file 
+
+
